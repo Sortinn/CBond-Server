@@ -146,14 +146,9 @@
 
 
     </dependencies>
-<<<<<<< HEAD
 
 
     <build>
-=======
-         
-   <build>
->>>>>>> 5e5f36e6addf5cf2be251eb6509bc77eb1258507
         <finalName>ssm</finalName>
         <plugins>
             <plugin>
@@ -161,17 +156,11 @@
                 <artifactId>jetty-maven-plugin</artifactId>
                 <version>9.4.10.v20180503</version>
             </plugin>
-<<<<<<< HEAD
-
-=======
-            
->>>>>>> 5e5f36e6addf5cf2be251eb6509bc77eb1258507
             <plugin>
                 <groupId>org.ow2.jonas</groupId>
                 <artifactId>jonas-web-container-tomcat-7.0</artifactId>
                 <version>5.3.0</version>
             </plugin>
-<<<<<<< HEAD
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -186,9 +175,3 @@
     </build>
 
 </project>
-=======
-        </plugins>
-    </build>
-         
-</project>
->>>>>>> 5e5f36e6addf5cf2be251eb6509bc77eb1258507
