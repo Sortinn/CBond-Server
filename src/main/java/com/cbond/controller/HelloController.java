@@ -12,5 +12,9 @@ public class HelloController {
     public String sayHello() {
         return "hello";
     }
+
+    public static void main(String[] args) {
+
+    }
 }
 
