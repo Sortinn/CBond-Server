@@ -36,7 +36,7 @@
         <!--<property name="prefix" value="/WEB-INF/jsp/"/>-->
         <!--<property name="suffix" value=".jsp"/>-->
     <!--</bean>-->
-
+ b
     <bean id="websocket" class="com.cbond.net.CBondWebSocketHandler"/>
 
     <websocket:handlers>
