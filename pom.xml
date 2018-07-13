@@ -8,9 +8,6 @@
     <name>CBond Maven Webapp</name>
     <url>http://maven.apache.org</url>
 
-    <properties>
-        <spring.version>4.3.7.RELEASE</spring.version>
-    </properties>
 
     <dependencies>
 
@@ -48,12 +45,12 @@
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-websocket</artifactId>
-            <version>${spring.version}</version>
+            <version>4.1.7.RELEASE</version>
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-messaging</artifactId>
-            <version>${spring.version}</version>
+            <version>4.1.7.RELEASE</version>
         </dependency>
 
         <!-- DAO: MyBatis -->

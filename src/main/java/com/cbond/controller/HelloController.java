@@ -13,8 +13,5 @@ public class HelloController {
         return "hello";
     }
 
-    public static void main(String[] args) {
-
-    }
 }
 

@@ -3,12 +3,13 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:context="http://www.springframework.org/schema/context"
        xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:websocket="http://www.springframework.org/schema/websocket"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
 	http://www.springframework.org/schema/beans/spring-beans.xsd
 	http://www.springframework.org/schema/context
 	http://www.springframework.org/schema/context/spring-context.xsd
 	http://www.springframework.org/schema/mvc
-	http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd">
+	http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd http://www.springframework.org/schema/websocket http://www.springframework.org/schema/websocket/spring-websocket.xsd">
     <!-- 配置SpringMVC -->
     <!-- 1.开启SpringMVC注解模式 -->
     <!-- 简化配置：
@@ -30,8 +31,19 @@
         <property name="suffix" value=".jsp" />
     </bean>
 
+    <bean id="websocket" class="com.cbond.net.CBondWebSocketHanddler"/>
+
+    <websocket:handlers>
+        <websocket:mapping path="/" handler="websocket"/>
+        <websocket:handshake-interceptors>
+            <bean class="com.cbond.net.HandShakeInterceptor"/>
+        </websocket:handshake-interceptors>
+    </websocket:handlers>
+
     <!-- 4.扫描web相关的bean -->
-    <context:component-scan base-package="com.cbond.controller" />
+    <context:component-scan base-package="com.cbond" />
+
+    <context:component-scan base-package="com.cbond.net.config"/>
 
     <!-- 自动扫描该包，使SpringMVC认为包下用了@controller注解的类是控制器 -->
     <context:component-scan base-package="com.cbond">
