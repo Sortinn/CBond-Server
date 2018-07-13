@@ -4,23 +4,52 @@
          version="3.1" metadata-complete="true">
     <!-- 如果是用mvn命令生成的xml，需要修改servlet版本为3.1 -->
     <!-- 配置DispatcherServlet -->
+
+
+    <display-name>Seditor</display-name>
+
     <servlet>
-        <servlet-name>cbond</servlet-name>
+        <servlet-name>seditor</servlet-name>
         <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
-        <!-- 配置springMVC需要加载的配置文件
-            spring-dao.xml,spring-service.xml,spring-web.xml
-            Mybatis - > spring -> springmvc
-         -->
+
         <init-param>
             <param-name>contextConfigLocation</param-name>
-            <!--<param-value>classpath:spring/spring-*.xml</param-value>-->
-            <param-value>classpath:spring/spring-web.xml</param-value>
+            <param-value>
+                classpath:spring/spring-web.xml
+            </param-value>
         </init-param>
+        <!--<load-on-startup>1</load-on-startup>-->
     </servlet>
 
     <servlet-mapping>
-        <servlet-name>cbond</servlet-name>
-        <!-- 默认匹配所有的请求 -->
+        <servlet-name>seditor</servlet-name>
         <url-pattern>/</url-pattern>
     </servlet-mapping>
+
+
+    <servlet-mapping>
+        <servlet-name>default</servlet-name>
+        <url-pattern>*.css</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>default</servlet-name>
+        <url-pattern>*.gif</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>default</servlet-name>
+        <url-pattern>*.jpg</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>default</servlet-name>
+        <url-pattern>*.png</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>default</servlet-name>
+        <url-pattern>*.js</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>default</servlet-name>
+        <url-pattern>*.html</url-pattern>
+    </servlet-mapping>
+
 </web-app>
