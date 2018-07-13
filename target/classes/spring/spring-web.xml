@@ -10,44 +10,40 @@
 	http://www.springframework.org/schema/context/spring-context.xsd
 	http://www.springframework.org/schema/mvc
 	http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd http://www.springframework.org/schema/websocket http://www.springframework.org/schema/websocket/spring-websocket.xsd">
-    <!-- 配置SpringMVC -->
-    <!-- 1.开启SpringMVC注解模式 -->
-    <!-- 简化配置：
-        (1)自动注册DefaultAnootationHandlerMapping,AnotationMethodHandlerAdapter
-        (2)提供一些列：数据绑定，数字和日期的format @NumberFormat, @DateTimeFormat, xml,json默认读写支持
-    -->
-    <mvc:annotation-driven />
+    <!--DispatcherServlet的配置文件-->
 
-    <!-- 2.静态资源默认servlet配置
-        (1)加入对静态资源的处理：js,gif,png
-        (2)允许使用"/"做整体映射
-     -->
-    <mvc:default-servlet-handler/>
+    <!--启用spring的一些annotation -->
+    <context:annotation-config/>
 
-    <!-- 3.配置jsp 显示ViewResolver -->
-    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-        <property name="viewClass" value="org.springframework.web.servlet.view.JstlView" />
-        <property name="prefix" value="/WEB-INF/jsp/" />
-        <property name="suffix" value=".jsp" />
-    </bean>
 
-    <bean id="websocket" class="com.cbond.net.CBondWebSocketHanddler"/>
-
-    <websocket:handlers>
-        <websocket:mapping path="/" handler="websocket"/>
-        <websocket:handshake-interceptors>
-            <bean class="com.cbond.net.HandShakeInterceptor"/>
-        </websocket:handshake-interceptors>
-    </websocket:handlers>
-
-    <!-- 4.扫描web相关的bean -->
-    <context:component-scan base-package="com.cbond" />
-
-    <context:component-scan base-package="com.cbond.net.config"/>
+    <context:component-scan base-package="com.config"/>
 
     <!-- 自动扫描该包，使SpringMVC认为包下用了@controller注解的类是控制器 -->
     <context:component-scan base-package="com.cbond">
         <context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
     </context:component-scan>
+
+
+
+    <!--HandlerMapping 无需配置，springmvc可以默认启动-->
+
+    <!-- 配置注解驱动 可以将request参数与绑定到controller参数上 -->
+    <mvc:annotation-driven/>
+
+
+    <!--<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">-->
+        <!--<property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>-->
+        <!--<property name="prefix" value="/WEB-INF/jsp/"/>-->
+        <!--<property name="suffix" value=".jsp"/>-->
+    <!--</bean>-->
+
+    <bean id="websocket" class="com.cbond.net.CBondWebSocketHandler"/>
+
+    <websocket:handlers>
+        <websocket:mapping path="/websocket/" handler="websocket"/>
+        <websocket:handshake-interceptors>
+            <bean class="com.cbond.net.HandShakeInterceptor"/>
+        </websocket:handshake-interceptors>
+    </websocket:handlers>
 
 </beans>
