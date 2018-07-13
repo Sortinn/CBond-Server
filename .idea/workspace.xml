@@ -7,11 +7,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6036f5e2-1d64-4adf-95db-42e8f399e197" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/cbond/service/impl/impl/CarDistance.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/cbond/service/impl/impl/CarHail.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/cbond/service/impl/impl/MyServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cbond/service/impl/impl/MyServiceImpl.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -82,7 +78,7 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/com/cbond/service/impl/impl/CarHail.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="374">
-              <caret line="20" column="1" selection-start-line="20" selection-start-column="1" selection-end-line="20" selection-end-column="1" />
+              <caret line="20" selection-start-line="20" selection-end-line="20" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#195#208#0" expanded="true" />
@@ -249,51 +245,6 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="CBond-Server" type="b2602c69:ProjectViewProjectNode" />
-              <item name="CBond-Server" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="cbond" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="CBond-Server" type="b2602c69:ProjectViewProjectNode" />
-              <item name="CBond-Server" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="cbond" type="462c0819:PsiDirectoryNode" />
-              <item name="dao" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="CBond-Server" type="b2602c69:ProjectViewProjectNode" />
-              <item name="CBond-Server" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="cbond" type="462c0819:PsiDirectoryNode" />
-              <item name="net" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="CBond-Server" type="b2602c69:ProjectViewProjectNode" />
-              <item name="CBond-Server" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="cbond" type="462c0819:PsiDirectoryNode" />
-              <item name="impl" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="CBond-Server" type="b2602c69:ProjectViewProjectNode" />
-              <item name="CBond-Server" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="cbond" type="462c0819:PsiDirectoryNode" />
-              <item name="impl" type="462c0819:PsiDirectoryNode" />
-              <item name="impl" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="CBond-Server" type="b2602c69:ProjectViewProjectNode" />
@@ -562,7 +513,7 @@
       <workItem from="1530594578670" duration="3277000" />
       <workItem from="1531373915970" duration="6097000" />
       <workItem from="1531452610473" duration="7624000" />
-      <workItem from="1531465155400" duration="6006000" />
+      <workItem from="1531465155400" duration="6638000" />
     </task>
     <servers />
   </component>
@@ -578,11 +529,10 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="41783000" />
+    <option name="totallyTimeSpent" value="42415000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="Event Log" order="14" side_tool="true" />
@@ -605,7 +555,7 @@
       <window_info anchor="bottom" id="Run" order="3" weight="0.32872927" />
       <window_info anchor="bottom" id="Spring" order="8" />
       <window_info anchor="bottom" id="Terminal" order="9" visible="true" weight="0.23479491" />
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.7650794" visible="true" weight="0.2627346" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.7650794" visible="true" weight="0.2627346" />
       <window_info id="Web" order="6" sideWeight="0.23492064" side_tool="true" weight="0.25297618" />
       <window_info anchor="right" id="Theme Preview" order="7" />
       <window_info id="Favorites" order="5" side_tool="true" />
@@ -837,7 +787,7 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/com/cbond/service/impl/impl/CarHail.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="374">
-          <caret line="20" column="1" selection-start-line="20" selection-start-column="1" selection-end-line="20" selection-end-column="1" />
+          <caret line="20" selection-start-line="20" selection-end-line="20" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#195#208#0" expanded="true" />
