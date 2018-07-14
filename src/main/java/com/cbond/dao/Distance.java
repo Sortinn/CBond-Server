@@ -1,22 +1,11 @@
 package com.cbond.dao;
 
+import com.cbond.dao.SiteInfo.Location;
+
 public interface Distance {
 
-    /**
-     * 公交车和用户的距离
-     * @return
-     */
-    Double distanceBetweenCarAndPassenger(Object passengerInfo, Object driverInfo);
+
+    Double distanceBetweenCarAndPassenger(Location location1, Location location2);
 
 
-    /**
-     * 乘客与站点之间的距离
-     * @param passengerInfo
-     * @param siteInfo
-     * @return
-     */
-    Double distanceBetweenSiteAndPassenger(Object passengerInfo, Object siteInfo);
-
-
-    String  save(String input);
 }
