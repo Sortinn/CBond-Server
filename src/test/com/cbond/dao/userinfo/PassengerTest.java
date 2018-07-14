@@ -1,11 +1,8 @@
 package com.cbond.dao.userinfo;
 
 import com.cbond.base.UnitTestBase;
-import com.cbond.dao.User;
 import org.junit.After;
-import org.junit.Assert;
 import org.junit.Before;
-import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.BlockJUnit4ClassRunner;
 
@@ -34,13 +31,5 @@ public class PassengerTest extends UnitTestBase {
     @After
     public void after() throws Exception {
     }
-
-    @Test
-    public void testSetter() {
-        User user = super.getBean("passenger");
-        String res = user.save("你好啊高天");
-        Assert.assertEquals("你好啊高天", res);
-    }
-
 
 }

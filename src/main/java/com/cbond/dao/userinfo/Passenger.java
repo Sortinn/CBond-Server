@@ -47,7 +47,7 @@ public class Passenger extends UserInfo implements Distance {
     }
 
     @Override
-    public Double distanceBetweenCarAndPassenger(Location location1, Location location2) {
+    public Double distanceBetweenCarAndPassenger(Location location1, Location location2,String unit) {
         return null;
     }
 }

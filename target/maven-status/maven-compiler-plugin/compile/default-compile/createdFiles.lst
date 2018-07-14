@@ -1,10 +1,10 @@
 com/cbond/dao/userinfo/Driver.class
 com/cbond/net/CBondWebSocketHandler.class
-com/cbond/service/impl/utils/MiniDistance.class
 com/cbond/service/impl/callcar/QueueComapre.class
 com/cbond/dao/userinfo/UserInfo.class
 com/cbond/dao/userinfo/Passenger.class
 com/cbond/service/impl/administrator/Administrator.class
+com/cbond/service/impl/utils/StraightLineDistance.class
 com/cbond/exception/MyException.class
 com/cbond/net/HandShakeInterceptor.class
 com/cbond/service/impl/callcar/CarHail.class

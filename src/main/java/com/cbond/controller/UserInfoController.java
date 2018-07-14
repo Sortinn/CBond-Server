@@ -6,7 +6,7 @@ import com.cbond.dao.SiteInfo.Site;
 import com.cbond.dao.SiteInfo.Station;
 import com.cbond.service.impl.callcar.CarDistance;
 import com.cbond.service.impl.callcar.CarHail;
-import com.cbond.service.impl.utils.MiniDistance;
+import com.cbond.service.impl.utils.StraightLineDistance;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -22,7 +22,8 @@ public class UserInfoController {
     private ArrayList<Station> driver = new ArrayList<Station>();
     private ArrayList<String> site = new ArrayList<String>();
     private Site sites = new Site();
-    String[] carNum = {"1", "2", "3", "4", "5"};
+    private Site carSite = new Site();
+    private String[] carNum = {"1", "2", "3", "4", "5"};
     private String[] stationName = {"HT", "DX", "ZY", "ZHL", "DM", "TYG", "FL", "JSQ", "BC", "NC", "DH"};
     private String[] stationNameZh = {"海棠餐厅", "丁香餐厅", "竹园餐厅", "综合楼", "东门", "体育馆", "F楼", "家属区", "北操", "南操", "大活"};
     private Logger logger = Logger.getLogger(String.valueOf(UserInfoController.class));
@@ -40,53 +41,96 @@ public class UserInfoController {
             34.1265843832, 108.8295149803
     };
 
+    private double[] driverLocation = {
+            34.1248791503, 108.8360810280,  //竹园餐厅门口
+            34.1274725117, 108.8301587105,  //大学生活动中心门口
+            34.1284900000, 108.8293300000,  //游泳馆
+            34.1217528007, 108.8397073746,  //东门
+            34.1221258371, 108.8312852383   //家属区附近
+    };
+
 
     private void addStation() {
         for (int i = 0; i < stationName.length; i++) {
             sites.addStation(stationName[i], new Station(stationNameZh[i], new Location(stationLocation[2 * i], stationLocation[2 * i + 1])));
             site.add(stationName[i]);
         }
-
-
     }
 
-    private Location getNearestCar(Location location) {
+    private void addCar() {
+        for (int i = 0; i < carNum.length; i++) {
+            carSite.addStation(carNum[i], new Station(carNum[i], new Location(driverLocation[2 * i], driverLocation[2 * i + 1])));
+        }
+    }
 
+
+    private Location getNearestSite(Location location) {
         addStation();
-        MiniDistance miniDistance = new MiniDistance();
+        StraightLineDistance straightLineDistance = new StraightLineDistance();
         CarHail carHail = new CarHail();
         for (String s : site) {
-            Double min = miniDistance.distanceBetweenCarAndPassenger(location, sites.getSiteInfo().get(s).getLocation());
-            logger.info(String.valueOf(min));
-            carHail.addDistances(new CarDistance(s, min));
+            Double distance = straightLineDistance.distanceBetweenCarAndPassenger(location, sites.getSiteInfo().get(s).getLocation(), "K");
+            logger.info(String.valueOf(distance));
+            carHail.addDistances(new CarDistance(s, distance));
         }
         return sites.getSiteInfo().get(carHail.callCar()).getLocation();
 
     }
 
 
-    @RequestMapping(value = "/jsondata")
-    public void getInfo(String callType, String userID, String username, String longitude, String latitude, HttpServletResponse response) throws IOException {
-
-
+    @RequestMapping(value = "/nearestsiteinfo")
+    public void getSiteInfo(String callType, String userID, String username, String longitude, String latitude, HttpServletResponse response) throws IOException {
         response.setContentType("text/html;charset=utf-8");
         response.setHeader("Access-Control-Allow-Origin", "*");
         response.setHeader("Access-Control-Allow-Methods", "GET,POST");
         logger.info("callType >> " + callType + " userID >>> " + userID + "  userdname >>> " + username + " longitude >>> " + longitude + " latitude >> " + latitude);
 
-        Location nearestCarLocation = null;
-        if (callType.equals("1")) {
-            nearestCarLocation = getNearestCar(new Location(Double.parseDouble(latitude), Double.parseDouble(longitude)));
+        Location nearestSiteLocation = null;
+        if (callType.equals("3")) {
+            nearestSiteLocation = getNearestSite(new Location(Double.parseDouble(latitude), Double.parseDouble(longitude)));
 
         }
 
-        logger.info("计算出来的公交车位置为：" + nearestCarLocation.getLatitude() + ", " + nearestCarLocation.getLongitude());
+        logger.info("计算出来的站点位置为：" + nearestSiteLocation.getLatitude() + ", " + nearestSiteLocation.getLongitude());
 
         Writer responseToWechat = response.getWriter();
         responseToWechat.write("数据已写入后台，请稍后...");
-        responseToWechat.write("最近的公交车的经纬度坐标为(" + nearestCarLocation.getLatitude() + ", " + nearestCarLocation.getLongitude() + ")");
+        responseToWechat.write("最近的站点的经纬度坐标为(" + nearestSiteLocation.getLatitude() + ", " + nearestSiteLocation.getLongitude() + ")");
         responseToWechat.flush();
 
+    }
+
+
+    @RequestMapping(value = "/nearestdriverinfo")
+    public void getDriverInfo(String callType, String userID, String username, String longitude, String latitude, HttpServletResponse response) throws IOException {
+        response.setContentType("text/html;charset=utf-8");
+        response.setHeader("Access-Control-Allow-Origin", "*");
+        response.setHeader("Access-Control-Allow-Methods", "GET,POST");
+        logger.info("callType >> " + callType + " userID >>> " + userID + "  userdname >>> " + username + " longitude >>> " + longitude + " latitude >> " + latitude);
+        Location nearestDriverLocation = null;
+        if (callType.equals("1")) {
+            nearestDriverLocation = getNearestCar(new Location(Double.parseDouble(latitude), Double.parseDouble(longitude)));
+        }
+
+        logger.info("最近的公交车位置经纬度为：" + nearestDriverLocation.getLatitude() + ", " + nearestDriverLocation.getLongitude());
+
+        Writer responseToWriter = response.getWriter();
+        responseToWriter.write("最近的公交车位置经纬度为：" + nearestDriverLocation.getLatitude() + ", " + nearestDriverLocation.getLongitude());
+        responseToWriter.flush();
+
+    }
+
+    private Location getNearestCar(Location location) {
+
+        addCar();
+        StraightLineDistance straightLineDistance = new StraightLineDistance();
+        CarHail carHail = new CarHail();
+        for (String s : carNum) {
+            Double distance = straightLineDistance.distanceBetweenCarAndPassenger(location, carSite.getSiteInfo().get(s).getLocation(), "K");
+            System.out.println(distance);
+            carHail.addDistances(new CarDistance(s, distance));
+        }
+        return carSite.getSiteInfo().get(carHail.callCar()).getLocation();
 
     }
 
