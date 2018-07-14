@@ -1,12 +1,12 @@
-package com.cbond.service.impl.impl;
+package com.cbond.service.impl.impl.callcar;
 
 public class CarDistance {
     private String num;
-    private  Double distance;
-    public CarDistance(String num,Double distance)
-    {
-        this.distance=distance;
-        this.num=num;
+    private Double distance;
+
+    public CarDistance(String num, Double distance) {
+        this.distance = distance;
+        this.num = num;
     }
 
     public Double getDistance() {

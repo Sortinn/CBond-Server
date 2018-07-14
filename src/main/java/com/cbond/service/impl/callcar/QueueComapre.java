@@ -1,8 +1,8 @@
-package com.cbond.service.impl.impl;
+package com.cbond.service.impl.impl.callcar;
+
+import com.cbond.service.impl.impl.callcar.CarDistance;
 
 import java.util.Comparator;
-import java.util.HashMap;
-import java.util.PriorityQueue;
 
 public class QueueComapre implements Comparator<CarDistance> {
 
