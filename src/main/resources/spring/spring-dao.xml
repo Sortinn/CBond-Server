@@ -1,12 +1,12 @@
-<!--<?xml version="1.0" encoding="UTF-8"?>-->
-<!--<beans xmlns="http://www.springframework.org/schema/beans"-->
-       <!--xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"-->
-       <!--xsi:schemaLocation="http://www.springframework.org/schema/beans-->
-	<!--http://www.springframework.org/schema/beans/spring-beans.xsd-->
-	<!--http://www.springframework.org/schema/context-->
-	<!--http://www.springframework.org/schema/context/spring-context.xsd">-->
-    <!--&lt;!&ndash; 配置整合mybatis过程 &ndash;&gt;-->
-    <!--&lt;!&ndash; 1.配置数据库相关参数properties的属性：${url} &ndash;&gt;-->
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans.xsd
+	http://www.springframework.org/schema/context
+	http://www.springframework.org/schema/context/spring-context.xsd">
+     <!--配置整合mybatis过程 -->
+     <!--1.配置数据库相关参数properties的属性：${url} -->
     <!--<context:property-placeholder location="classpath:jdbc.properties" />-->
 
     <!--&lt;!&ndash; 2.数据库连接池 &ndash;&gt;-->
@@ -47,4 +47,18 @@
         <!--&lt;!&ndash; 给出需要扫描Dao接口包 &ndash;&gt;-->
         <!--<property name="basePackage" value="com.soecode.lyf.dao" />-->
     <!--</bean>-->
-<!--</beans>-->
+
+    <bean id="driver" class="com.cbond.dao.userinfo.Driver">
+        <property name="userID" value="110"/>
+        <property name="location" value=""/>
+        <property name="driverIdentityId" value=""/>
+        <property name="driverPhoneNumber" value=""/>
+    </bean>
+
+
+    <bean id="passenger" class="com.cbond.dao.userinfo.Passenger">
+        <property name="userID" value="15030140071"/>
+        <property name="location" value=""/>
+    </bean>
+
+</beans>

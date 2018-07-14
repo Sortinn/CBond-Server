@@ -1,4 +1,4 @@
-package com.cbond.service.impl.impl;
+package com.cbond.service.impl;
 
 import org.junit.Test; 
 import org.junit.Before; 

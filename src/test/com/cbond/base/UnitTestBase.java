@@ -1,4 +1,4 @@
-package com.imooc.test.base;
+package com.cbond.base;
 
 import org.junit.After;
 import org.junit.Before;
@@ -19,7 +19,7 @@ public class UnitTestBase {
 	}
 	
 	@Before
-	public void before() {
+	public void before() throws Exception {
 		if (StringUtils.isEmpty(springXmlpath)) {
 			springXmlpath = "classpath*:spring-*.xml";
 		}
@@ -32,7 +32,7 @@ public class UnitTestBase {
 	}
 	
 	@After
-	public void after() {
+	public void after() throws Exception {
 		context.destroy();
 	}
 	

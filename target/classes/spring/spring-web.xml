@@ -24,7 +24,6 @@
     </context:component-scan>
 
 
-
     <!--HandlerMapping 无需配置，springmvc可以默认启动-->
 
     <!-- 配置注解驱动 可以将request参数与绑定到controller参数上 -->
@@ -32,9 +31,9 @@
 
 
     <!--<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">-->
-        <!--<property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>-->
-        <!--<property name="prefix" value="/WEB-INF/jsp/"/>-->
-        <!--<property name="suffix" value=".jsp"/>-->
+    <!--<property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>-->
+    <!--<property name="prefix" value="/WEB-INF/jsp/"/>-->
+    <!--<property name="suffix" value=".jsp"/>-->
     <!--</bean>-->
 
     <bean id="websocket" class="com.cbond.net.CBondWebSocketHandler"/>
