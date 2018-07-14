@@ -1,4 +1,4 @@
-package com.cbond.dao.SiteInfo;
+package com.cbond.dao.siteinfo;
 
 import java.util.HashMap;
 import java.util.Map;

@@ -1,4 +1,4 @@
-package com.cbond.dao.SiteInfo;
+package com.cbond.dao.siteinfo;
 
 public class Station {
     private String stationName;

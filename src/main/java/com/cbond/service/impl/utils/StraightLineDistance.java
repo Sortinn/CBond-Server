@@ -1,7 +1,7 @@
 package com.cbond.service.impl.utils;
 
 import com.cbond.dao.Distance;
-import com.cbond.dao.SiteInfo.Location;
+import com.cbond.dao.siteinfo.Location;
 
 public class StraightLineDistance implements Distance {
 

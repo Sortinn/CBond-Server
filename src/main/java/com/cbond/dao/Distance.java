@@ -1,6 +1,6 @@
 package com.cbond.dao;
 
-import com.cbond.dao.SiteInfo.Location;
+import com.cbond.dao.siteinfo.Location;
 
 public interface Distance {
 

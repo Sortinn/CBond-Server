@@ -2,7 +2,7 @@ package com.cbond.dao.userinfo;
 
 
 import com.cbond.dao.Distance;
-import com.cbond.dao.SiteInfo.Location;
+import com.cbond.dao.siteinfo.Location;
 
 import java.util.Date;
 
