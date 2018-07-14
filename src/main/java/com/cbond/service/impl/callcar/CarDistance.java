@@ -1,4 +1,4 @@
-package com.cbond.service.impl.impl.callcar;
+package com.cbond.service.impl.callcar;
 
 public class CarDistance {
     private String num;
@@ -24,4 +24,5 @@ public class CarDistance {
     public void setNum(String num) {
         this.num = num;
     }
+
 }

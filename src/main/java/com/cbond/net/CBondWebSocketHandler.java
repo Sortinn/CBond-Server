@@ -28,6 +28,8 @@ public class CBondWebSocketHandler extends TextWebSocketHandler {
         String content = message.getPayload();
         usersMessage.add(content);
         log.info("client's message >> " + content);
+        log.info("");
+        sentToAllUsers(new TextMessage("Hello, I am server!"));
     }
 
 
@@ -38,7 +40,7 @@ public class CBondWebSocketHandler extends TextWebSocketHandler {
     }
 
     public void afterConnectionClosed(WebSocketSession webSocketSession, CloseStatus closeStatus) throws Exception {
-        log.info("websocket closed.......");
+        log.info("websocket closed...");
         users.remove(webSocketSession);
     }
 
