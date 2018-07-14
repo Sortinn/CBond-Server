@@ -78,25 +78,17 @@ public class UserInfoController {
     }
 
 
-    @RequestMapping(value = "/nearestsiteinfo")
-    public void getSiteInfo(String callType, String userID, String username, String longitude, String latitude, HttpServletResponse response) throws IOException {
-        response.setContentType("text/html;charset=utf-8");
-        response.setHeader("Access-Control-Allow-Origin", "*");
-        response.setHeader("Access-Control-Allow-Methods", "GET,POST");
-        logger.info("callType >> " + callType + " userID >>> " + userID + "  userdname >>> " + username + " longitude >>> " + longitude + " latitude >> " + latitude);
+    private Location getNearestCar(Location location) {
 
-        Location nearestSiteLocation = null;
-        if (callType.equals("3")) {
-            nearestSiteLocation = getNearestSite(new Location(Double.parseDouble(latitude), Double.parseDouble(longitude)));
-
+        addCar();
+        StraightLineDistance straightLineDistance = new StraightLineDistance();
+        CarHail carHail = new CarHail();
+        for (String s : carNum) {
+            Double distance = straightLineDistance.distanceBetweenCarAndPassenger(location, carSite.getSiteInfo().get(s).getLocation(), "K");
+            System.out.println(distance);
+            carHail.addDistances(new CarDistance(s, distance));
         }
-
-        logger.info("计算出来的站点位置为：" + nearestSiteLocation.getLatitude() + ", " + nearestSiteLocation.getLongitude());
-
-        Writer responseToWechat = response.getWriter();
-        responseToWechat.write("数据已写入后台，请稍后...");
-        responseToWechat.write("最近的站点的经纬度坐标为(" + nearestSiteLocation.getLatitude() + ", " + nearestSiteLocation.getLongitude() + ")");
-        responseToWechat.flush();
+        return carSite.getSiteInfo().get(carHail.callCar()).getLocation();
 
     }
 
@@ -120,19 +112,31 @@ public class UserInfoController {
 
     }
 
-    private Location getNearestCar(Location location) {
 
-        addCar();
-        StraightLineDistance straightLineDistance = new StraightLineDistance();
-        CarHail carHail = new CarHail();
-        for (String s : carNum) {
-            Double distance = straightLineDistance.distanceBetweenCarAndPassenger(location, carSite.getSiteInfo().get(s).getLocation(), "K");
-            System.out.println(distance);
-            carHail.addDistances(new CarDistance(s, distance));
+
+    @RequestMapping(value = "/nearestsiteinfo")
+    public void getSiteInfo(String callType, String userID, String username, String longitude, String latitude, HttpServletResponse response) throws IOException {
+        response.setContentType("text/html;charset=utf-8");
+        response.setHeader("Access-Control-Allow-Origin", "*");
+        response.setHeader("Access-Control-Allow-Methods", "GET,POST");
+        logger.info("callType >> " + callType + " userID >>> " + userID + "  userdname >>> " + username + " longitude >>> " + longitude + " latitude >> " + latitude);
+
+        Location nearestSiteLocation = null;
+        if (callType.equals("3")) {
+            nearestSiteLocation = getNearestSite(new Location(Double.parseDouble(latitude), Double.parseDouble(longitude)));
+
         }
-        return carSite.getSiteInfo().get(carHail.callCar()).getLocation();
+
+        logger.info("计算出来的站点位置为：" + nearestSiteLocation.getLatitude() + ", " + nearestSiteLocation.getLongitude());
+
+        Writer responseToWechat = response.getWriter();
+        responseToWechat.write("数据已写入后台，请稍后...");
+        responseToWechat.write("最近的站点的经纬度坐标为(" + nearestSiteLocation.getLatitude() + ", " + nearestSiteLocation.getLongitude() + ")");
+        responseToWechat.flush();
 
     }
+
+
 
 
 }
