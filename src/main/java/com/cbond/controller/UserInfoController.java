@@ -104,14 +104,13 @@ public class UserInfoController {
             nearestDriverLocation = getNearestCar(new Location(Double.parseDouble(latitude), Double.parseDouble(longitude)));
         }
 
-        logger.info("最近的公交车位置经纬度为：" + nearestDriverLocation.getLatitude() + ", " + nearestDriverLocation.getLongitude());
+        logger.info("最近的公交车位置信息：" + nearestDriverLocation.getLatitude() + ", " + nearestDriverLocation.getLongitude());
 
         Writer responseToWriter = response.getWriter();
-        responseToWriter.write("最近的公交车位置经纬度为：" + nearestDriverLocation.getLatitude() + ", " + nearestDriverLocation.getLongitude());
+        responseToWriter.write(nearestDriverLocation.getLatitude() + "," + nearestDriverLocation.getLongitude());
         responseToWriter.flush();
 
     }
-
 
 
     @RequestMapping(value = "/nearestsiteinfo")
@@ -127,16 +126,14 @@ public class UserInfoController {
 
         }
 
-        logger.info("计算出来的站点位置为：" + nearestSiteLocation.getLatitude() + ", " + nearestSiteLocation.getLongitude());
+        logger.info("最近的站点位置信息：" + nearestSiteLocation.getLatitude() + "," + nearestSiteLocation.getLongitude());
 
         Writer responseToWechat = response.getWriter();
-        responseToWechat.write("数据已写入后台，请稍后...");
-        responseToWechat.write("最近的站点的经纬度坐标为(" + nearestSiteLocation.getLatitude() + ", " + nearestSiteLocation.getLongitude() + ")");
+//        responseToWechat.write("数据已写入后台，请稍后...");
+        responseToWechat.write(nearestSiteLocation.getLatitude() + ", " + nearestSiteLocation.getLongitude());
         responseToWechat.flush();
 
     }
-
-
 
 
 }
